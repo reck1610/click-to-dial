@@ -55,10 +55,10 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>debug.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>fairmanager-production-codesign.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ITapi3">
@@ -101,6 +101,7 @@
     </None>
     <None Include="app.manifest" />
     <None Include="debug.snk" />
+    <None Include="fairmanager-production-codesign.pfx" />
     <None Include="log4net.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -140,6 +141,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /f "$(ProjectDir)fairmanager-production-codesign.pfx" /p "%25FAIRMANAGER_CODE_SIGNING_PASSWORD%25" "$(TargetDir)$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

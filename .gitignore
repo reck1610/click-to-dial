@@ -6,3 +6,5 @@ TelProtocolHandlerSetup/obj/
 RegisterProtocolHandler.reg
 *.suo
 *.user
+
+fairmanager-production-codesign.pfx
