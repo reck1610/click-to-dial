@@ -1,8 +1,8 @@
 SetCompressor /SOLID lzma
 
-!define PRODUCT_NAME "FairManager Click-to-Dial"
-!define PRODUCT_VERSION "4.0.0.0"
-!define PRODUCT_PUBLISHER "HARTWIG Communications & Events GmbH & Co. KG"
+!define PRODUCT_NAME "Click-to-Dial"
+!define PRODUCT_VERSION "4.0.0"
+!define PRODUCT_PUBLISHER "FairManager"
 !define PRODUCT_URL https://fairmanager.de/
 
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
@@ -25,9 +25,9 @@ SetCompressor /SOLID lzma
 
 !insertmacro MUI_LANGUAGE English
 
-Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "Setup_${PRODUCT_NAME}_${PRODUCT_VERSION}.exe"
-InstallDir "$PROGRAMFILES64\${PRODUCT_PUBLISHER}\${PRODUCT_NAME}"
+Name "${PRODUCT_NAME}"
+OutFile "clicktodial-${PRODUCT_VERSION}.exe"
+InstallDir "$PROGRAMFILES\${PRODUCT_PUBLISHER}\${PRODUCT_NAME}"
 ShowInstDetails show
 ShowUnInstDetails show
 

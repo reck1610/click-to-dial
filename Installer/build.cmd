@@ -1,11 +1,8 @@
 @ECHO OFF
-REM Clear all tempoary and build directories
+REM Build all projects
 CD ..
-FOR /d /r . %%d in (bin obj) do @IF exist "%%d" RD /s/q "%%d"
-CD Installer
-
-CD ..
-build.cmd
+CALL build.cmd
 
 REM Make installer
+CD Installer
 "C:\Program Files (x86)\NSIS\makensis.exe" "%~dp0\ClickToDial.nsi"
