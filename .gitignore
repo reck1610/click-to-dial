@@ -3,6 +3,7 @@ ClickToDial/bin/
 ClickToDial/obj/
 ClickToDialSetup/bin/
 ClickToDialSetup/obj/
+packages/
 *.suo
 *.user
 
