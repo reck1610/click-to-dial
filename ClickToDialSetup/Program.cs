@@ -84,6 +84,26 @@ namespace TelProtocolHandlerSetup {
 			}
 		}
 
+        private static void DeleteClassesRoot( string where, string name, RegistryView view = RegistryView.Registry32 ) {
+			try {
+				if( view == RegistryView.Registry64 ) {
+					Console.WriteLine( "   x64: {0}\\{1}", @where, string.IsNullOrEmpty( name ) ? "(Default)" : name );
+				} else {
+					Console.WriteLine( "COMMIT: {0}\\{1}", @where, string.IsNullOrEmpty( name ) ? "(Default)" : name );
+				}
+
+				RegistryKey classRoot = RegistryKey.OpenBaseKey( RegistryHive.ClassesRoot, view );
+				classRoot.DeleteSubKey( @where );
+
+			} catch( Exception e ) {
+				Console.WriteLine( "\t" + e.Message );
+			}
+
+			if( view == RegistryView.Registry32 && System.Environment.Is64BitOperatingSystem ) {
+				DeleteClassesRoot( where, name, RegistryView.Registry64 );
+			}
+		}
+
 		private static void WriteLocalMachine( string where, string name, string value, RegistryView view = RegistryView.Registry32 ) {
 			try {
 				if( view == RegistryView.Registry64 ) {
@@ -92,8 +112,8 @@ namespace TelProtocolHandlerSetup {
 					Console.WriteLine( "COMMIT: {0}\\{1} = {2}", @where, string.IsNullOrEmpty( name ) ? "(Default)" : name, value );
 				}
 
-				RegistryKey classRoot = RegistryKey.OpenBaseKey( RegistryHive.LocalMachine, view );
-				RegistryKey key = classRoot.CreateSubKey( @where );
+				RegistryKey localMachine = RegistryKey.OpenBaseKey( RegistryHive.LocalMachine, view );
+				RegistryKey key = localMachine.CreateSubKey( @where );
 				key.SetValue( name, value, RegistryValueKind.String );
 
 			} catch( Exception e ) {
@@ -102,6 +122,26 @@ namespace TelProtocolHandlerSetup {
 
 			if( view == RegistryView.Registry32 && System.Environment.Is64BitOperatingSystem ) {
 				WriteLocalMachine( where, name, value, RegistryView.Registry64 );
+			}
+		}
+
+        private static void DeleteLocalMachine( string where, string name, RegistryView view = RegistryView.Registry32 ) {
+			try {
+				if( view == RegistryView.Registry64 ) {
+					Console.WriteLine( "   x64: {0}\\{1}", @where, string.IsNullOrEmpty( name ) ? "(Default)" : name );
+				} else {
+					Console.WriteLine( "COMMIT: {0}\\{1}", @where, string.IsNullOrEmpty( name ) ? "(Default)" : name );
+				}
+
+				RegistryKey localMachine = RegistryKey.OpenBaseKey( RegistryHive.LocalMachine, view );
+				localMachine.DeleteSubKey( @where );
+
+			} catch( Exception e ) {
+				Console.WriteLine( "\t" + e.Message );
+			}
+
+			if( view == RegistryView.Registry32 && System.Environment.Is64BitOperatingSystem ) {
+                DeleteLocalMachine( where, name, RegistryView.Registry64 );
 			}
 		}
 	}
