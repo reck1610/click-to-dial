@@ -1,9 +1,8 @@
 bin/
-TelProtocolHandler/bin/
-TelProtocolHandler/obj/
-TelProtocolHandlerSetup/bin/
-TelProtocolHandlerSetup/obj/
-RegisterProtocolHandler.reg
+ClickToDial/bin/
+ClickToDial/obj/
+ClickToDialSetup/bin/
+ClickToDialSetup/obj/
 *.suo
 *.user
 
