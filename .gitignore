@@ -5,6 +5,7 @@ ClickToDialSetup/bin/
 ClickToDialSetup/obj/
 Installer/*.exe
 packages/
+setup/*.exe
 *.suo
 *.user
 
