@@ -18,6 +18,19 @@ namespace TelProtocolHandlerSetup {
 				Console.WriteLine( "Current process is : 32 bit" );
 			}
 
+			if( args[ 0 ] == "uninstall" ) {
+				Console.WriteLine( "Removing application registration..." );
+				Program.Uninstall();
+
+			} else {
+				Console.WriteLine( "Registering application..." );
+				Program.Install();
+			}
+
+			Console.WriteLine( "The process completed." );
+		}
+
+		private static void Install() {
 			// Register as the default handler for the tel: protocol.
 			const string protocolValue = "TEL:Telephone Invocation";
 			WriteClassesRoot( @"tel", string.Empty, protocolValue );
@@ -59,8 +72,48 @@ namespace TelProtocolHandlerSetup {
 					"TelProtocolHandler",
 					@"SOFTWARE\TelProtocolHandler\Capabilities" );
 			}
+		}
 
-			Console.WriteLine( "The process completed." );
+		private static void Uninstall() {
+			// Remove the default handler for the tel: protocol.
+			DeleteClassesRoot( @"tel\shell\open\command", string.Empty );
+
+			DeleteClassesRoot( @"tel", "URL Protocol" );
+			DeleteClassesRoot( @"tel", string.Empty );
+
+			// For Windows 8+, remove the choosable protocol handler.
+
+			// Version detection from http://stackoverflow.com/a/17796139/259953
+			Version win8Version = new Version( 6, 2, 9200, 0 );
+			if( Environment.OSVersion.Platform == PlatformID.Win32NT &&
+			    Environment.OSVersion.Version >= win8Version ) {
+				DeleteLocalMachine(
+					@"SOFTWARE\Classes\TelProtocolHandler\shell\open\command",
+					string.Empty );
+				DeleteLocalMachine(
+					@"SOFTWARE\Classes\TelProtocolHandler",
+					string.Empty );
+				DeleteLocalMachine(
+					@"SOFTWARE\Classes",
+					"TelProtocolHandler" );
+
+				DeleteLocalMachine(
+					@"SOFTWARE\TelProtocolHandler\Capabilities\URLAssociations",
+					"tel" );
+				DeleteLocalMachine(
+					@"SOFTWARE\TelProtocolHandler\Capabilities",
+					"ApplicationDescription" );
+				DeleteLocalMachine(
+					@"SOFTWARE\TelProtocolHandler\Capabilities",
+					"ApplicationName" );
+				DeleteLocalMachine(
+					@"SOFTWARE",
+					"TelProtocolHandler" );
+
+				DeleteLocalMachine(
+					@"SOFTWARE\RegisteredApplications",
+					"TelProtocolHandler" );
+			}
 		}
 
 		private static void WriteClassesRoot( string where, string name, string value, RegistryView view = RegistryView.Registry32 ) {
@@ -84,7 +137,7 @@ namespace TelProtocolHandlerSetup {
 			}
 		}
 
-        private static void DeleteClassesRoot( string where, string name, RegistryView view = RegistryView.Registry32 ) {
+		private static void DeleteClassesRoot( string where, string name, RegistryView view = RegistryView.Registry32 ) {
 			try {
 				if( view == RegistryView.Registry64 ) {
 					Console.WriteLine( "   x64: {0}\\{1}", @where, string.IsNullOrEmpty( name ) ? "(Default)" : name );
@@ -93,7 +146,7 @@ namespace TelProtocolHandlerSetup {
 				}
 
 				RegistryKey classRoot = RegistryKey.OpenBaseKey( RegistryHive.ClassesRoot, view );
-				classRoot.DeleteSubKey( @where );
+				classRoot.DeleteSubKeyTree( @where );
 
 			} catch( Exception e ) {
 				Console.WriteLine( "\t" + e.Message );
@@ -125,7 +178,7 @@ namespace TelProtocolHandlerSetup {
 			}
 		}
 
-        private static void DeleteLocalMachine( string where, string name, RegistryView view = RegistryView.Registry32 ) {
+		private static void DeleteLocalMachine( string where, string name, RegistryView view = RegistryView.Registry32 ) {
 			try {
 				if( view == RegistryView.Registry64 ) {
 					Console.WriteLine( "   x64: {0}\\{1}", @where, string.IsNullOrEmpty( name ) ? "(Default)" : name );
@@ -134,14 +187,14 @@ namespace TelProtocolHandlerSetup {
 				}
 
 				RegistryKey localMachine = RegistryKey.OpenBaseKey( RegistryHive.LocalMachine, view );
-				localMachine.DeleteSubKey( @where );
+				localMachine.DeleteSubKeyTree( @where );
 
 			} catch( Exception e ) {
 				Console.WriteLine( "\t" + e.Message );
 			}
 
 			if( view == RegistryView.Registry32 && System.Environment.Is64BitOperatingSystem ) {
-                DeleteLocalMachine( where, name, RegistryView.Registry64 );
+				DeleteLocalMachine( where, name, RegistryView.Registry64 );
 			}
 		}
 	}
