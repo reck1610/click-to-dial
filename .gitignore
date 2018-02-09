@@ -1,14 +1,9 @@
 .certificates/
 .vs/
 bin/
-
-ClickToDial/bin/
-ClickToDial/obj/
-ClickToDialSetup/bin/
-ClickToDialSetup/obj/
-CodeSigning/bin/
-CodeSigning/obj/
-
+*/bin/
+*/obj/
+Installer/*.exe
 packages/
 
 Installer/Output/
@@ -17,5 +12,7 @@ setup/*.exe
 
 *.suo
 *.user
+.vs/*/v15/Server/*
 
 fairmanager-production-codesign.pfx
+
