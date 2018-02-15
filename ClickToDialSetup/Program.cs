@@ -20,7 +20,7 @@ namespace TelProtocolHandlerSetup {
 				Console.WriteLine( "Current process is : 32 bit" );
 			}
 
-			if( args[ 0 ] == "uninstall" ) {
+			if( 0 < args.Length && args[ 0 ] == "--uninstall" ) {
 				Console.WriteLine( "Removing application registration..." );
 				Program.Uninstall();
 
@@ -38,7 +38,7 @@ namespace TelProtocolHandlerSetup {
 			WriteClassesRoot( @"tel", string.Empty, protocolValue );
 			WriteClassesRoot( @"tel", "URL Protocol", string.Empty );
 
-			string command = $"\"{AppDomain.CurrentDomain.BaseDirectory}tel.exe\" \"%1\"";
+			string command = $"\"{AppDomain.CurrentDomain.BaseDirectory}dial.exe\" \"%1\"";
 			WriteClassesRoot( @"tel\shell\open\command", string.Empty, command );
 
 			// For Windows 8+, register as a choosable protocol handler.
