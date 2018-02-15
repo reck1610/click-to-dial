@@ -9,7 +9,7 @@ ClickToDialSetup/obj/
 
 packages/
 
-Installer/*.exe
+Installer/Output
 setup/*.exe
 
 *.suo
