@@ -40,4 +40,14 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4EBA9F24-3435-4902-9D53-833A87CF2DFE}
 	EndGlobalSection
+	GlobalSection(AutomaticVersions) = postSolution
+		UpdateAssemblyVersion = True
+		UpdateAssemblyFileVersion = True
+		UpdateAssemblyInfoVersion = True
+		AssemblyVersionSettings = None.IncrementOnDemand.DeltaDayStamp.TimeStamp
+		AssemblyFileVersionSettings = None.IncrementOnDemand.DeltaDayStamp.TimeStamp
+		UpdatePackageVersion = False
+		AssemblyInfoVersionSemVerSettings = AssemblyVersion.IncrementWithAutoReset.None
+		AssemblyInfoVersionType = SemVer1
+	EndGlobalSection
 EndGlobal

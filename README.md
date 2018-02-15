@@ -11,6 +11,10 @@ All future calls will then directly be dialed on that line.
 
 > To reconfigure, just start the application again, without parameters.
 
+Versioning
+----------
+This project uses [Automatic Versions](https://marketplace.visualstudio.com/items?itemName=PrecisionInfinity.AutomaticVersions) for versioning.
+
 Signing
 -------
 Historically, it is required that binary signing with Visual Studio is as fucked up of a task as humanly imaginable.
