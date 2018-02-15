@@ -1,5 +1,5 @@
-﻿namespace TelProtocolHandler {
-    partial class SelectTAPIForm {
+namespace FairManager.ClickToDial {
+    partial class SelectTapiForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -83,7 +83,7 @@
             this.Controls.Add(this.ButtonOk);
             this.Controls.Add(this.tapiSelectBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "SelectTAPIForm";
+            this.Name = "SelectTapiForm";
             this.Text = "Select TAPI line";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Win32;
 
 namespace TelProtocolHandlerSetup {
@@ -8,12 +8,14 @@ namespace TelProtocolHandlerSetup {
 
 			if( System.Environment.Is64BitOperatingSystem ) {
 				Console.WriteLine( "Operating system is: 64 bit (dual-registry)" );
+
 			} else {
 				Console.WriteLine( "Operating system is: 32 bit" );
 			}
 
 			if( System.Environment.Is64BitProcess ) {
 				Console.WriteLine( "Current process is : 64 bit" );
+
 			} else {
 				Console.WriteLine( "Current process is : 32 bit" );
 			}
@@ -36,13 +38,14 @@ namespace TelProtocolHandlerSetup {
 			WriteClassesRoot( @"tel", string.Empty, protocolValue );
 			WriteClassesRoot( @"tel", "URL Protocol", string.Empty );
 
-			string command = string.Format( "\"{0}tel.exe\" \"%1\"", AppDomain.CurrentDomain.BaseDirectory );
+			string command = $"\"{AppDomain.CurrentDomain.BaseDirectory}tel.exe\" \"%1\"";
 			WriteClassesRoot( @"tel\shell\open\command", string.Empty, command );
 
 			// For Windows 8+, register as a choosable protocol handler.
 
 			// Version detection from http://stackoverflow.com/a/17796139/259953
 			Version win8Version = new Version( 6, 2, 9200, 0 );
+
 			if( Environment.OSVersion.Platform == PlatformID.Win32NT &&
 			    Environment.OSVersion.Version >= win8Version ) {
 				WriteLocalMachine(
@@ -85,6 +88,7 @@ namespace TelProtocolHandlerSetup {
 
 			// Version detection from http://stackoverflow.com/a/17796139/259953
 			Version win8Version = new Version( 6, 2, 9200, 0 );
+
 			if( Environment.OSVersion.Platform == PlatformID.Win32NT &&
 			    Environment.OSVersion.Version >= win8Version ) {
 				DeleteLocalMachine(

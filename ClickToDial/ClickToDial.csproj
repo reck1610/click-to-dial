@@ -80,7 +80,9 @@
   <ItemGroup>
     <Compile Include="CallEventHandler.cs" />
     <Compile Include="Configuration.cs" />
-    <Compile Include="SelectTAPIForm.cs" />
+    <Compile Include="SelectTAPIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SelectTAPIForm.Designer.cs">
       <DependentUpon>SelectTAPIForm.cs</DependentUpon>
     </Compile>
@@ -139,7 +141,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" sign /f "$(ProjectDir)fairmanager-production-codesign.pfx" /p "%25FAIRMANAGER_CODE_SIGNING_PASSWORD%25" "$(TargetDir)$(TargetFileName)"
+    <PostBuildEvent>"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" sign /f "$(SolutionDir).certificates/fairmanager-production-codesign.pfx" /p "%25FAIRMANAGER_CODE_SIGNING_PASSWORD%25" "$(TargetDir)$(TargetFileName)"
 "C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" timestamp /t http://timestamp.comodoca.com/authenticode "$(TargetDir)$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
