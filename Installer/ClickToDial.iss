@@ -1,6 +1,6 @@
 #preproc ispp
 
-#define ApplicationName "Click-to-Dial"
+#define ApplicationName "FairManager Click-to-Dial"
 #define ApplicationVersion GetFileVersion( "..\bin\dial.exe" )
 #define ApplicationGuid "7811ec0b-a46e-4f34-af45-09923c5e9489"
 #define Now GetDateTimeString("yyyymmdd_hhnnss", "", "");
@@ -15,7 +15,7 @@ AppPublisherURL="https://fairmanager.de"
 DefaultDirName={pf}\FairManager\{#ApplicationName}
 DefaultGroupName={#ApplicationName}
 UninstallDisplayIcon={app}\dial.exe
-OutputBaseFilename={#ApplicationName}_{#ApplicationVersion}_{#Now}-x86
+OutputBaseFilename=click-to-dial_{#ApplicationVersion}-x86
 
 AlwaysRestart=no
 AllowNetworkDrive=no
@@ -37,4 +37,7 @@ Source: "..\bin\setup.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\setup.exe.config"; DestDir: "{app}";
 
 [Run]
-Filename: {app}\setup.exe;
+Filename: {app}\setup.exe; Description: "Register protocol handler"; StatusMsg: "Registering protocol handler..."; Flags: postinstall runascurrentuser runhidden
+
+[UninstallRun]
+Filename: {app}\setup.exe; Parameters: "--uninstall"; StatusMsg: "Registering protocol handler..."
