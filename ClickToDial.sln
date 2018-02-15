@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
@@ -39,15 +41,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4EBA9F24-3435-4902-9D53-833A87CF2DFE}
-	EndGlobalSection
-	GlobalSection(AutomaticVersions) = postSolution
-		UpdateAssemblyVersion = True
-		UpdateAssemblyFileVersion = True
-		UpdateAssemblyInfoVersion = True
-		AssemblyVersionSettings = None.IncrementOnDemand.DeltaDayStamp.TimeStamp
-		AssemblyFileVersionSettings = None.IncrementOnDemand.DeltaDayStamp.TimeStamp
-		UpdatePackageVersion = False
-		AssemblyInfoVersionSemVerSettings = AssemblyVersion.IncrementWithAutoReset.None
-		AssemblyInfoVersionType = SemVer1
 	EndGlobalSection
 EndGlobal

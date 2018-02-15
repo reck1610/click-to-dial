@@ -1,12 +1,17 @@
+.certificates/
 .vs/
 bin/
+
 ClickToDial/bin/
 ClickToDial/obj/
 ClickToDialSetup/bin/
 ClickToDialSetup/obj/
-Installer/*.exe
+
 packages/
+
+Installer/*.exe
 setup/*.exe
+
 *.suo
 *.user
 
