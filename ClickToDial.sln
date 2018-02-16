@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickToDial", "ClickToDial\ClickToDial.csproj", "{9021FA02-AF4A-41D0-8287-3E23B0457E16}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542} = {4ED5B424-BAC1-429C-BA6F-96E953B90542}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickToDialSetup", "ClickToDialSetup\ClickToDialSetup.csproj", "{D9DE75B6-D9BD-43BF-A2DB-8453034E05E0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542} = {4ED5B424-BAC1-429C-BA6F-96E953B90542}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{74E01599-F492-48EA-B677-54671D86EF36}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,20 +28,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSigning", "CodeSigning\CodeSigning.csproj", "{4ED5B424-BAC1-429C-BA6F-96E953B90542}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9021FA02-AF4A-41D0-8287-3E23B0457E16}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{9021FA02-AF4A-41D0-8287-3E23B0457E16}.Debug|x86.ActiveCfg = Debug|x86
 		{9021FA02-AF4A-41D0-8287-3E23B0457E16}.Debug|x86.Build.0 = Debug|x86
+		{9021FA02-AF4A-41D0-8287-3E23B0457E16}.Release|Any CPU.ActiveCfg = Release|x86
 		{9021FA02-AF4A-41D0-8287-3E23B0457E16}.Release|x86.ActiveCfg = Release|x86
 		{9021FA02-AF4A-41D0-8287-3E23B0457E16}.Release|x86.Build.0 = Release|x86
+		{D9DE75B6-D9BD-43BF-A2DB-8453034E05E0}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{D9DE75B6-D9BD-43BF-A2DB-8453034E05E0}.Debug|x86.ActiveCfg = Debug|x86
 		{D9DE75B6-D9BD-43BF-A2DB-8453034E05E0}.Debug|x86.Build.0 = Debug|x86
+		{D9DE75B6-D9BD-43BF-A2DB-8453034E05E0}.Release|Any CPU.ActiveCfg = Release|x86
 		{D9DE75B6-D9BD-43BF-A2DB-8453034E05E0}.Release|x86.ActiveCfg = Release|x86
 		{D9DE75B6-D9BD-43BF-A2DB-8453034E05E0}.Release|x86.Build.0 = Release|x86
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Debug|x86.Build.0 = Debug|Any CPU
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Release|x86.ActiveCfg = Release|Any CPU
+		{4ED5B424-BAC1-429C-BA6F-96E953B90542}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
