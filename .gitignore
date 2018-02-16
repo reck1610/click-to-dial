@@ -11,7 +11,8 @@ CodeSigning/obj/
 
 packages/
 
-Installer/Output
+Installer/Output/
+Installer/Uninstaller/
 setup/*.exe
 
 *.suo
