@@ -1,8 +1,6 @@
 using System;
 using System.Windows.Forms;
 
-[assembly: log4net.Config.XmlConfigurator( ConfigFile = "log4net.config", Watch = true )]
-
 namespace FairManager.ClickToDial {
 	internal static class Program {
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );

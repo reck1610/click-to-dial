@@ -30,11 +30,11 @@ AllowRootDirectory=no
 [Files]
 Source: "..\bin\dial.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\dial.exe.config"; DestDir: "{app}";
+Source: "..\bin\dial.exe.log4net"; DestDir: "{app}";
 
 Source: "..\bin\ITapi3.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\ITapi3.xml"; DestDir: "{app}";
 
-Source: "..\bin\log4net.config"; DestDir: "{app}";
 Source: "..\bin\log4net.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\log4net.xml"; DestDir: "{app}";
 

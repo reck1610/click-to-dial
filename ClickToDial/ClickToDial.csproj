@@ -101,10 +101,10 @@
     <None Include="app.manifest" />
     <None Include="debug.snk" />
     <None Include="fairmanager-production-codesign.pfx" />
-    <None Include="log4net.config">
+    <Content Include="dial.exe.log4net">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -9,16 +9,7 @@ IF EXIST packages\NuGet.exe (
   )
 )
 
-IF NOT EXIST C:\Windows\Microsoft.NET\Framework\v* (
-  ECHO No .NET Framework found. Go to http://www.microsoft.com/en-us/download/details.aspx?id=30653
-) ELSE (
-  FOR /F %%f in ('dir /B /O-N C:\Windows\Microsoft.NET\Framework\v*') DO (
-    ECHO Using C:\Windows\Microsoft.NET\Framework\%%f
-    CD /D C:\Windows\Microsoft.NET\Framework\%%f
-    GOTO :build
-  )
-  :build
-  ECHO Building...
-  MSBuild.exe "%~dp0%SOLUTION_FILENAME%" /t:Rebuild /p:Configuration=Release /p:Platform="x86"
-)
+CD "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\"
+ECHO Building...
+MSBuild.exe "%~dp0%SOLUTION_FILENAME%" /t:Rebuild /p:Configuration=Release /p:Platform="x86"
 ENDLOCAL
