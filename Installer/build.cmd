@@ -1,4 +1,5 @@
 @ECHO OFF
+SETLOCAL
 
 ECHO Clearing output folders...
 CD ..
@@ -12,16 +13,19 @@ IF EXIST Output RD /S /Q Output
 ECHO Building installer...
 "C:\Program Files (x86)\Inno Setup 5\ISCC.exe" "%~dp0ClickToDial.iss"
 
-IF EXIST "../.certificates/PFX_PASSWORD" (
-	SET /p FAIRMANAGER_CODE_SIGNING_PASSWORD=<"../.certificates/PFX_PASSWORD"
+IF NOT EXIST "../.certificates/PFX_PASSWORD" (
+	ECHO No PFX password file found. Skipping signing.
+	EXIT 0
+)
 
-	ECHO Signing uninstaller...
-	"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" sign /f "../.certificates/fairmanager-production-codesign.pfx" /p "%FAIRMANAGER_CODE_SIGNING_PASSWORD%" "Uninstaller/*"
-	"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" timestamp /t http://timestamp.comodoca.com/authenticode "Uninstaller/*"
-	ECHO If this is the first time the uninstaller was built, you now need to run the setup build again!
+SET /P FAIRMANAGER_CODE_SIGNING_PASSWORD=<"../.certificates/PFX_PASSWORD"
 
-	ECHO Signing installer...
-	"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" sign /f "../.certificates/fairmanager-production-codesign.pfx" /p "%FAIRMANAGER_CODE_SIGNING_PASSWORD%" "Output/*"
-	"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" timestamp /t http://timestamp.comodoca.com/authenticode "Output/*"
-	ECHO If the installer could not be signed, this might be due to the uninstaller not having been signed yet. Run the build again.
-) ELSE ECHO No PFX password file found. Skipping signing.
+ECHO Signing uninstaller...
+"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" sign /f "../.certificates/fairmanager-production-codesign.pfx" /p "%FAIRMANAGER_CODE_SIGNING_PASSWORD%" "Uninstaller/*"
+"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" timestamp /t http://timestamp.comodoca.com/authenticode "Uninstaller/*"
+ECHO If this is the first time the uninstaller was built, you now need to run the setup build again!
+
+ECHO Signing installer...
+"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" sign /f "../.certificates/fairmanager-production-codesign.pfx" /p "%FAIRMANAGER_CODE_SIGNING_PASSWORD%" "Output/*"
+"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" timestamp /t http://timestamp.comodoca.com/authenticode "Output/*"
+ECHO If the installer could not be signed, this might be due to the uninstaller not having been signed yet. Run the build again.
