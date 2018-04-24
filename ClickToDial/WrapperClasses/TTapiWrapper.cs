@@ -1,9 +1,9 @@
-﻿using JulMar.Tapi3;
+using JulMar.Tapi3;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace TelProtocolHandler {
+namespace FairManager.ClickToDial.WrapperClasses {
 	public class TTapiWrapper {
 		private static readonly log4net.ILog Log = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
 

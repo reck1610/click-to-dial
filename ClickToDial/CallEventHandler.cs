@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using FairManager.ClickToDial.WrapperClasses;
 
 namespace FairManager.ClickToDial {
     public class CallEventHandler {
@@ -81,7 +82,7 @@ namespace FairManager.ClickToDial {
         }
 
 	    public virtual void CallTapiLineConfiguration() {
-            SelectTAPIForm tapiForm = new SelectTAPIForm( Configuration.Config.Container.LineToUse );
+            SelectTapiForm tapiForm = new SelectTapiForm( Configuration.Config.Container.LineToUse );
             Application.Run( tapiForm );
 
             // If the form wasn't cancelled, check selected line for errors.

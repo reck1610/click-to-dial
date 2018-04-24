@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace TelProtocolHandler.TestData {
+namespace FairManager.ClickToDial.Test.TestData {
 	public class Arguments : IEnumerable {
 
 		public IEnumerator GetEnumerator() {

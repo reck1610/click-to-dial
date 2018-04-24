@@ -15,7 +15,6 @@ C:\Projects\click-to-dial\ClickToDialTest\obj\Debug\ClickToDialTest.exe
 C:\Projects\click-to-dial\ClickToDialTest\obj\Debug\ClickToDialTest.pdb
 C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\NSubstitute.dll
 C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\NSubstitute.xml
-C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\log4net.config
 C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\ClickToDialTest.exe.config
 C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\dial.exe
 C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\ITapi3.dll
@@ -32,3 +31,4 @@ C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\FakeItEasy.dll
 C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\FakeItEasy.pdb
 C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\FakeItEasy.xml
 C:\Projects\click-to-dial\ClickToDialTest\obj\Debug\ClickToDialTest.csproj.CopyComplete
+C:\Projects\click-to-dial\ClickToDialTest\bin\Debug\dial.exe.log4net

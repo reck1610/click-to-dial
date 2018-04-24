@@ -3,9 +3,10 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using FairManager.ClickToDial.WrapperClasses;
 
-namespace TelProtocolHandler {
-    public class FairManager.ClickToDial {
+namespace FairManager.ClickToDial {
+    public class Configuration {
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
 		public static ConfigContainer _container;
 	    public static Configuration Config = new Configuration();

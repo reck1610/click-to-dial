@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using JulMar.Tapi3;
 using NUnit.Framework;
@@ -7,9 +7,10 @@ using FakeItEasy.Configuration;
 using log4net;
 using log4net.Config;
 using log4net.Core;
-using TelProtocolHandler.TestData;
+using FairManager.ClickToDial.Test.TestData;
+using FairManager.ClickToDial.WrapperClasses;
 
-namespace TelProtocolHandler.Tests {
+namespace FairManager.ClickToDial.Test {
 	
 	[TestFixture]
 	[TestOf( typeof( TTapi ) )]

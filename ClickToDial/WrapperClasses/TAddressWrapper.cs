@@ -1,9 +1,9 @@
-﻿using JulMar.Tapi3;
+using JulMar.Tapi3;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace TelProtocolHandler {
+namespace FairManager.ClickToDial.WrapperClasses {
 	// ReSharper disable once InconsistentNaming
 	public class TAddressWrapper {
 		private TAddress _tAddress;

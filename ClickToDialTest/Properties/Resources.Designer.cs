@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClickToDialTest.Properties {
+namespace FairManager.ClickToDial.Test.Properties {
     using System;
     
     

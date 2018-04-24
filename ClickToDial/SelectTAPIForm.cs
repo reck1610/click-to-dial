@@ -1,8 +1,9 @@
 using System;
 using System.Windows.Forms;
+using FairManager.ClickToDial.WrapperClasses;
 
 namespace FairManager.ClickToDial {
-    public partial class SelectTAPIForm : Form {
+    public partial class SelectTapiForm : Form {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
 
         /// <summary>
@@ -10,11 +11,10 @@ namespace FairManager.ClickToDial {
         /// </summary>
         public bool WasCancelled { get; private set; }
 
-        public SelectTAPIForm( string lineToUse = "" ) {
+        public SelectTapiForm( string lineToUse = "" ) {
             InitializeComponent();
 
             WasCancelled = false;
-            LineToUse = lineToUse;
 
             log.Info( "Searching for TAPI devices…" );
 	        TTapiWrapper tapi = TTapiWrapper.GetInstance();
