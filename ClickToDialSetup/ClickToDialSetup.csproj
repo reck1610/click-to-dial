@@ -50,7 +50,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>fairmanager-production-codesign.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -75,7 +76,6 @@
     <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="debug.snk" />
-    <None Include="fairmanager-production-codesign.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -61,6 +61,9 @@
     <AssemblyOriginatorKeyFile>fairmanager-production-codesign.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FakeItEasy, Version=4.0.0.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
+      <HintPath>..\packages\FakeItEasy.4.4.0\lib\net45\FakeItEasy.dll</HintPath>
+    </Reference>
     <Reference Include="ITapi3">
       <HintPath>..\lib\ITAPI3\Release\ITapi3.dll</HintPath>
     </Reference>
@@ -78,6 +81,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TelHandlerSetup.cs" />
+    <Compile Include="WrapperClasses\MessageBoxWrapper.cs" />
+    <Compile Include="WrapperClasses\TCallWrapper.cs" />
+    <Compile Include="WrapperClasses\TAddressWrapper.cs" />
+    <Compile Include="WrapperClasses\TTapiWrapper.cs" />
     <Compile Include="CallEventHandler.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="SelectTAPIForm.cs">
