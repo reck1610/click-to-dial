@@ -9,7 +9,6 @@ IF EXIST packages\NuGet.exe (
   )
 )
 
-CD "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\"
-ECHO Building...
-MSBuild.exe "%~dp0%SOLUTION_FILENAME%" /t:Rebuild /p:Configuration=Release /p:Platform="x86"
+ECHO Building '%~dp0%SOLUTION_FILENAME%'...
+"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe" /Build "Release|x86" "%~dp0%SOLUTION_FILENAME%"
 ENDLOCAL
