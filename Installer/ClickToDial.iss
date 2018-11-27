@@ -53,4 +53,4 @@ Filename: "{app}\setup.exe"; Description: "Register protocol handler"; StatusMsg
 Filename: "{app}\mivoice_office_400_and_intelligate_1st_party_tsp_serial_1.4.1.exe"; StatusMsg: "Installing TAPI provider..."; Flags: hidewizard waituntilterminated; Components: tapi
 
 [UninstallRun]
-Filename: {app}\setup.exe; Parameters: "--uninstall"; StatusMsg: "Registering protocol handler..."; Components: main
+Filename: {app}\setup.exe; Parameters: "--uninstall"; StatusMsg: "Unregistering protocol handler..."; Components: main
