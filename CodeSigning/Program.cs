@@ -18,7 +18,7 @@ namespace CodeSigning
 			string pfxPassword = File.ReadAllText( Path.Combine( solutionDir, ".certificates\\PFX_PASSWORD" ) ).TrimEnd();
 			string pfxPath = Path.Combine( solutionDir, ".certificates/fairmanager-production-codesign.pfx" );
 
-			string commandSign = @"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe";
+			const string commandSign = @"C:\Program Files (x86)\Windows Kits\10\App Certification Kit\signtool.exe";
 			string argsSign = "sign /f \"" + pfxPath + "\" /p \"" + pfxPassword + "\" \"" + target + "\"";
 			ProcessStartInfo procSign = new ProcessStartInfo(  ) {
 				FileName = commandSign,
@@ -29,7 +29,7 @@ namespace CodeSigning
 				CreateNoWindow=true
 			};
 
-			string commandTimestamp = @"C:\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe";
+			const string commandTimestamp = @"C:\Program Files (x86)\Windows Kits\10\App Certification Kit\signtool.exe";
 			string argsTimestamp = "timestamp /t http://timestamp.comodoca.com/authenticode \"" + target + "\"";
 			ProcessStartInfo procTimestamp = new ProcessStartInfo() {
 				FileName = commandTimestamp,
